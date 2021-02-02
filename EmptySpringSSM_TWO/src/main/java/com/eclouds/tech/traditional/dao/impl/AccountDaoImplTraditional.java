@@ -2,7 +2,7 @@ package com.eclouds.tech.traditional.dao.impl;
 
 import com.eclouds.tech.model.Account;
 import com.eclouds.tech.traditional.dao.AccountDaoTraditional;
-import com.eclouds.tech.traditional.util.ConnectionUtils;
+import com.eclouds.tech.util.ConnectionUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.eclouds.tech.traditional.util;
+package com.eclouds.tech.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

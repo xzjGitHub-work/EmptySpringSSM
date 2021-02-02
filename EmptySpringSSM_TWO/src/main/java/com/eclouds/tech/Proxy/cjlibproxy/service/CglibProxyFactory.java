@@ -1,7 +1,7 @@
 //package com.eclouds.tech.Proxy.jdkproxy.service;
 //
-//import com.eclouds.tech.notransaction.server.AccountServiceByNoTransaction;
-//import com.eclouds.tech.traditional.util.TxUtils;
+//import com.eclouds.tech.notransaction.server.AccountByNoTransactionService;
+//import com.eclouds.tech.util.TxUtils;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.beans.factory.annotation.Qualifier;
 //import org.springframework.cglib.proxy.Enhancer;
@@ -15,16 +15,16 @@
 //@Component
 //public class CglibProxyFactory {
 //    @Autowired
-//    @Qualifier("accountServiceImpl")
-//    private AccountServiceByNoTransaction accountService;
+//    @Qualifier("accountServiceByNoTransaction")
+//    private AccountByNoTransactionService accountService;
 //    @Autowired
 //    private TxUtils txUtils;
 //
 //    @Bean
-//    public AccountServiceByNoTransaction createCglibProxyAccountService() {
+//    public AccountByNoTransactionService createCglibProxyAccountService() {
 //            //参数一：目标对象的类型
 //            //参数二：动作类
-//        return (AccountServiceByNoTransaction) Enhancer.create(accountService.getClass(), new
+//        return (AccountByNoTransactionService) Enhancer.create(accountService.getClass(), new
 //                MethodInterceptor() {
 //                    /**
 //                     * 前三个参数和jdk动态代理里面的是一样的

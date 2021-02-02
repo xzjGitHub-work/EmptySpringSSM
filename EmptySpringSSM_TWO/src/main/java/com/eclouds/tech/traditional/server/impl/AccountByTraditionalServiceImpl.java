@@ -3,7 +3,7 @@ package com.eclouds.tech.traditional.server.impl;
 import com.eclouds.tech.model.Account;
 import com.eclouds.tech.traditional.dao.AccountDaoTraditional;
 import com.eclouds.tech.traditional.server.AccountByTraditionalService;
-import com.eclouds.tech.traditional.util.TxUtils;
+import com.eclouds.tech.util.TxUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

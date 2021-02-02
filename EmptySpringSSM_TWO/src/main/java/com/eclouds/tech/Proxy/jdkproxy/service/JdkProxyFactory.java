@@ -1,7 +1,7 @@
 package com.eclouds.tech.Proxy.jdkproxy.service;
 
 import com.eclouds.tech.notransaction.server.AccountByNoTransactionService;
-import com.eclouds.tech.traditional.util.TxUtils;
+import com.eclouds.tech.util.TxUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -13,18 +13,17 @@ import java.lang.reflect.Proxy;
 
 @Component
 public class JdkProxyFactory {
-//1.15【AOP事务版】cglib动态代理实现事务增强
     @Autowired
-    @Qualifier("AccountByNoTransactionServiceImpl")
-    private AccountByNoTransactionService accountService;
+    @Qualifier("accountServiceByNoTransactionImpl")
+    private AccountByNoTransactionService accountServiceByNoTransaction;
     @Autowired
     private TxUtils txUtils;
 
     @Bean
     public AccountByNoTransactionService createJdkProxyAccountService() {
         return (AccountByNoTransactionService)
-                Proxy.newProxyInstance(accountService.getClass().getClassLoader(),
-                        accountService.getClass().getInterfaces(),
+                Proxy.newProxyInstance(accountServiceByNoTransaction.getClass().getClassLoader(),
+                        accountServiceByNoTransaction.getClass().getInterfaces(),
                         new InvocationHandler() {
                             @Override
                             public Object invoke(Object proxy, Method method, Object[] args) throws
@@ -33,7 +32,7 @@ public class JdkProxyFactory {
                                 try {
                                     //开启事务
                                     txUtils.openTx();
-                                    obj = method.invoke(accountService, args);
+                                    obj = method.invoke(accountServiceByNoTransaction, args);
                                     //提交事务
                                     txUtils.commitTx();
                                 } catch (Exception e) {
