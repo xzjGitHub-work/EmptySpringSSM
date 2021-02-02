@@ -6,5 +6,9 @@ package com.eclouds.tech.test.factory;
  * @CreateDate: 2021/2/2 9:37
  */
 public class TestBean {
+    public String Perform(){
+        System.out.println("执行到了");
+        return "22222222";
+    }
 
 }

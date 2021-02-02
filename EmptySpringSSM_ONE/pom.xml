@@ -8,11 +8,19 @@
     <artifactId>EmptySpringSSM_ONE</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
+        <!--解析xml文件-->
         <dependency>
             <groupId>dom4j</groupId>
             <artifactId>dom4j</artifactId>
             <version>1.6.1</version>
         </dependency>
+        <!--Spring-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.1.6.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
 
