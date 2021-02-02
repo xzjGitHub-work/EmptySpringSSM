@@ -7,7 +7,7 @@ package com.eclouds.tech.traditional.server;
  * @param:
  * @return:
  */
-public interface AccountService {
+public interface AccountByTraditionalService {
     /**
      * @describe:
      *

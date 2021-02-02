@@ -1,4 +1,4 @@
-package com.eclouds.tech.mainstream.server;
+package com.eclouds.tech.notransaction.server;
 
 /**
  * @describe:service接口
@@ -7,7 +7,7 @@ package com.eclouds.tech.mainstream.server;
  * @param:
  * @return:
  */
-public interface AccountService {
+public interface AccountByNoTransactionService{
     /**
      * @describe:
      *
