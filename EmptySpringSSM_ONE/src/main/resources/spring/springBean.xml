@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="TestBean" class="com.eclouds.tech.test.factory.TestBean"/>
+    <!--
+    scope属性有五个取值:
+        singleton(默认) 创建出的实例为单例模式， IOC只创建一次，然后一直存在
+        prototype 创建出的实例为多例模式， 每次获取bean的时候，IOC都给我们重新创建新对象
+        request(web) web项目中,Spring 创建一个 Bean 的对象,将对象存入到 request 域中.
+        session (web) web项目中,Spring 创建一个 Bean 的对象,将对象存入到 session 域中.
+        globalSession (用于分布式web开发) 创建的实例绑定全局session对象
+     Bean的生命周期中的两个特殊方法
+        在这里所谓的Bean的生命周期其实指的是Bean创建到销毁的这么一段时间。
+        在Spring中可以通过配置的形式，指定bean在创建后和销毁前要调用的方法。
+-->
+    <bean id="TestBean" class="com.eclouds.tech.test.factory.TestBean" scope="singleton"/>
 </beans>
