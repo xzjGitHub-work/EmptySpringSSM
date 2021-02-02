@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--开启注解扫描-->
+    <context:component-scan base-package="com.eclouds.tech"/>
+    <!--aop事务通知-->
+    <aop:config>
+        <!--配置切入点表达式-->
+        <!--execution(* *..*.*(..))是切入点的全统配方式，表示整个项目中所有类中所有方法都要被增强。最常用的切入点表达式必须精确到具体包路径。
+            * com.eclouds.tech.server.impl.*.*(..) -->
+        <aop:pointcut id="pointcut" expression="execution(* com.eclouds.tech.server.impl.*.*(..))"/>
+        <!--配置切面-->
+        <aop:aspect id="aspect" ref="myAdvice">
+            <!--aop:before       指定通知在切入点方法中执行的位置
+                method="before"  指定当前位置要执行通知中的哪个方法
+                pointcut         切入点表达式，指定通知要在哪些切入点方法上执行 -->
+            <aop:before method="before" pointcut-ref="pointcut"/>
+            <aop:after-returning method="afterReturning" pointcut-ref="pointcut"/>
+            <aop:after-throwing method="afterThrowing" pointcut-ref="pointcut"/>
+            <aop:after method="after" pointcut-ref="pointcut"/>
+        </aop:aspect>
+    </aop:config>
+
+
+</beans>
