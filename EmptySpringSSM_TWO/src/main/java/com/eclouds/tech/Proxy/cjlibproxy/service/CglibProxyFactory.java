@@ -15,7 +15,7 @@
 //@Component
 //public class CglibProxyFactory {
 //    @Autowired
-//    @Qualifier("accountServiceByNoTransaction")
+//    @Qualifier("accountServiceByNoTransactionImpl")
 //    private AccountByNoTransactionService accountService;
 //    @Autowired
 //    private TxUtils txUtils;
