@@ -10,7 +10,7 @@ import com.eclouds.tech.model.Account;
  * @param:
  * @return:
  */
-public interface AccountDao {
+public interface AccountDaoTraditional {
     /**
      * @describe:
      *

@@ -1,8 +1,7 @@
-package com.eclouds.tech.traditional.dao.impl;
+package com.eclouds.tech.notransaction.dao.impl;
 
-import com.eclouds.tech.mainstream.dao.AccountDao;
+import com.eclouds.tech.notransaction.dao.AccountDaoNoTransaction;
 import com.eclouds.tech.model.Account;
-import com.eclouds.tech.traditional.server.impl.ConnectionUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,20 +9,24 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.SQLException;
 
+/**
+ * @describe:实现类
+ * @author:xzj
+ * @createDate:2021/2/2 11:10
+ * @param:
+ * @return:
+ */
 @Repository
-public class AccountDaoImpl implements AccountDao {
+public class AccountDaoImplNoTransaction implements AccountDaoNoTransaction {
     @Autowired
     private QueryRunner queryRunner;
-    @Autowired
-    private ConnectionUtils connectionUtils;
 
     @Override
     public Account findByName(String name) {
         Account account = null;
         try {
-            account = queryRunner.query(connectionUtils.getConnection(),
-                    "select * from account where name=?", new BeanHandler<Account>
-                            (Account.class), name);
+            account = queryRunner.query("select * from account where name = ? ", new
+                    BeanHandler<>(Account.class), name);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -33,8 +36,7 @@ public class AccountDaoImpl implements AccountDao {
     @Override
     public void update(Account account) {
         try {
-            queryRunner.update(connectionUtils.getConnection(),
-                    "update account set money=? where id=?", account.getBalance(),
+            queryRunner.update("update account set balance = ? where id=?", account.getBalance(),
                     account.getId());
         } catch (SQLException e) {
             e.printStackTrace();

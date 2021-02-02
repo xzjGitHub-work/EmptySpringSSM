@@ -1,15 +1,16 @@
 package com.eclouds.tech.traditional.server.impl;
 
-import com.eclouds.tech.mainstream.dao.AccountDao;
-import com.eclouds.tech.mainstream.server.AccountService;
 import com.eclouds.tech.model.Account;
+import com.eclouds.tech.traditional.dao.AccountDaoTraditional;
+import com.eclouds.tech.traditional.server.AccountByTraditionalService;
+import com.eclouds.tech.traditional.util.TxUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AccountServiceImpl implements AccountService {
+public class AccountByTraditionalServiceImpl implements AccountByTraditionalService {
     @Autowired
-    private AccountDao accountDao;
+    private AccountDaoTraditional accountDao;
     @Autowired
     private TxUtils txUtils;
 

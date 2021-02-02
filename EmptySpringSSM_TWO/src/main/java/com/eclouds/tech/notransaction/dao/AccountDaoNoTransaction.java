@@ -1,4 +1,4 @@
-package com.eclouds.tech.mainstream.dao;
+package com.eclouds.tech.notransaction.dao;
 
 import com.eclouds.tech.model.Account;
 
@@ -10,7 +10,7 @@ import com.eclouds.tech.model.Account;
  * @param:
  * @return:
  */
-public interface AccountDao {
+public interface AccountDaoNoTransaction {
     /**
      * @describe:
      *
