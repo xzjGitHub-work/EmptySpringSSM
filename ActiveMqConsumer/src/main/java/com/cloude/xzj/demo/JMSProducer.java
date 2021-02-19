@@ -42,7 +42,6 @@ public class JMSProducer {
         MessageProducer messageProducer;
         //实例化连接工厂
         connectionFactory = new ActiveMQConnectionFactory(JMSProducer.USERNAME, JMSProducer.PASSWORD, JMSProducer.BROKEURL);
-
         try {
             //通过连接工厂获取连接
             connection = connectionFactory.createConnection();
@@ -56,9 +55,7 @@ public class JMSProducer {
             messageProducer = session.createProducer(destination);
             //发送消息
             sendMessage(session, messageProducer);
-
             session.commit();
-
         } catch (Exception e) {
             e.printStackTrace();
         }finally{
