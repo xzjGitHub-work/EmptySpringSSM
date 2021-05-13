@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecloude.echo.xzj.dao.UserMapper">
+    <resultMap id="resultMap" type="com.ecloude.echo.xzj.bean.User">
+        <result property="id" column="id"/>
+        <result property="account" column="account"/>
+        <result property="acount" column="acount"/>
+        <result property="password" column="password"/>
+        <result property="name" column="name"/>
+    </resultMap>
+    <sql id="filed">
+
+    id,account,acount,password,name
+
+    </sql>
+    <select id="getAllUser" resultType="com.ecloude.echo.xzj.bean.User">
+    select
+        <include refid="filed"/>
+         from user
+        <where>
+            <if test="id != null and id != ''">
+                id = #{id}
+            </if>
+        </where>
+    </select>
+    <delete id="addUser">
+    </delete>
+    <delete id="updateUserById">
+    </delete>
+    <delete id="deleteUserById">
+    </delete>
+</mapper>
